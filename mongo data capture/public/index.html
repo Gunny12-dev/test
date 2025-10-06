@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Capture form</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Info capture</h1>
+
+      <form id="captureForm">
+        <label
+          >Name
+          <input name="name" id="name" placeholder="name" required />
+          <div id="err-name" class="error"></div>
+        </label>
+
+        <label
+          >Surname
+          <input name="surname" id="surname" placeholder="surname" required />
+          <div id="err-surname" class="error"></div>
+        </label>
+
+        <label
+          >ID Number
+          <input
+            name="idNumber"
+            id="idNumber"
+            maxlength="13"
+            placeholder="Id-number"
+            required
+          />
+          <div id="err-idNumber" class="error"></div>
+        </label>
+
+        <label
+          >Date of Birth (dd/mm/YYYY)
+          <input
+            name="dateOfBirth"
+            id="dateOfBirth"
+            placeholder="dd/mm/YYYY"
+            required
+          />
+          <div id="err-dateOfBirth" class="error"></div>
+        </label>
+
+        <label>
+          <input type="checkbox" id="checkIdMatchesDob" required /> Check ID's
+          first 6 digits match DOB (YYMMDD)
+        </label>
+
+        <div class="buttons">
+          <button type="submit">POST</button>
+          <button type="button" id="cancelBtn">CANCEL</button>
+        </div>
+
+        <div id="message"></div>
+      </form>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
