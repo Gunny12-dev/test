@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSV Generator & Importer</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Generate Random CSV</h1>
+    <form action="/generate" method="POST">
+      <label>Number of Records:</label>
+      <input type="number" name="count" min="1" required />
+      <button type="submit">Generate CSV</button>
+    </form>
+
+    <h1>Upload CSV to Database</h1>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+      <input type="file" name="file" accept=".csv" required />
+      <button type="submit">Upload</button>
+    </form>
+    <script src="/SQLite database/project/server.js"></script>
+  </body>
+</html>
