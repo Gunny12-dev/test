@@ -2,14 +2,9 @@ const mongoose = require("mongoose"); // imports mongoose
 
 // creates a blueprint(schema) for the person document in MongoDB
 const PersonSchema = new mongoose.Schema({
- 
-  name: { type: String, required: true, trim: true }, // type:string:must be text
-  // required:true:field must contain data
-  // trim:true:removes spaces at the beginning and at the end before saving
-  surname: { type: String, required: true, trim: true },// same rules as name
-  idNumber: { type: String, required: true, unique: true }, // type:string: store as string to preserve leading zeros don't get dropped when saving
-  // required: true: must always be given
-  // unique: true: ensures no two people have the same ID number (at the schema validation level)
+  name: { type: String, required: true, trim: true }, 
+  surname: { type: String, required: true, trim: true },
+  idNumber: { type: String, required: true, unique: true },
   dateOfBirth: { type: Date, required: true },
 });
 

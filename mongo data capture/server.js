@@ -60,7 +60,7 @@ app.post("/api/person", async (req, res) => {
       req.body;
     const errors = {};
 
-    const namePattern = /^[A-Za-z\-\' ]{1,60}$/;
+    const namePattern = /^[A-Za-zÀ-ÖØ-öø-ÿ'’\-\s]+$/u;
     if (!name || !namePattern.test(name.trim()))
       errors.name =
         "Name is required and must contain only letters, spaces, hyphens or apostrophes.";

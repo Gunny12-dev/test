@@ -10,10 +10,10 @@ const cancelBtn = document.getElementById("cancelBtn");
 function validateClient(values) {
   const errors = {};
   //Validate Name
-  if (!values.name || !/^[A-Za-z\-\' ]{1,60}$/.test(values.name.trim()))
+  if (!values.name || !/^[A-Za-zÀ-ÖØ-öø-ÿ'’\-\s]+$/u.test(values.name.trim()))
     errors.name = "Invalid name";
   //validate Surname
-  if (!values.surname || !/^[A-Za-z\-\' ]{1,60}$/.test(values.surname.trim()))
+  if (!values.surname || !/^[A-Za-zÀ-ÖØ-öø-ÿ'’\-\s]+$/u.test(values.surname.trim()))
     errors.surname = "Invalid surname";
   //Validate ID Number
   if (!/^\d{13}$/.test(values.idNumber))
@@ -62,10 +62,7 @@ form.addEventListener("submit", async (e) => {
   };
   //runs form data through a validation function
   const clientErrors = validateClient(values);
-  //gives you all the keys in the error object.
-  //Are there any errors?
-  //If yes → run the code inside the if block.
-  //If no errors → skip the block and continue (e.g. submit data to the server).
+
   
   if (Object.keys(clientErrors).length > 0) {
     //shows error message next to field if an error is found
