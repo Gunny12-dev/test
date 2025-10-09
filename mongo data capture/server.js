@@ -27,14 +27,25 @@ function validateIdNumber(id) {
 function validateDobFormat(dobStr) {
   if (typeof dobStr !== "string") return false;
   if (!/^\d{2}\/\d{2}\/\d{4}$/.test(dobStr)) return false;
+
   const [dd, mm, yyyy] = dobStr.split("/").map((s) => parseInt(s, 10));
   const date = new Date(yyyy, mm - 1, dd);
-  return (
+
+  // Check valid date
+  const isValidDate =
     date &&
     date.getFullYear() === yyyy &&
     date.getMonth() === mm - 1 &&
-    date.getDate() === dd
-  );
+    date.getDate() === dd;
+
+  if (!isValidDate) return false;
+
+  // Prevent future dates
+  const today = new Date();
+  today.setHours(0, 0, 0, 0); // ignore time
+  if (date > today) return false;
+
+  return true;
 }
 
 // Convert DOB string to Date
